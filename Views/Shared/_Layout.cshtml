@@ -20,13 +20,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-link">
-                        @Html.ActionLink("Home", "Index", "Home", new {@class = "text-white text-decoration-none" })
+                        @Html.ActionLink("Trasgressore", "Create", "Trasgressori", new { }, new {@class = "text-white text-decoration-none" })
                     </li>
                     <li class="nav-link">
-                        @Html.ActionLink("Informazioni", "About", "Home", new { @class = "text-white text-decoration-none" })
+                        @Html.ActionLink("Violazione", "Create", "Violazioni", new { }, new { @class = "text-white text-decoration-none" })
                     </li>
                     <li class="nav-link">
-                        @Html.ActionLink("Contatto", "Contact", "Home", new { @class = "text-white text-decoration-none" })
+                        @Html.ActionLink("Verbale", "Contact", "Home", new { @class = "text-white text-decoration-none" })
                     </li>
                 </ul>
             </div>
@@ -34,7 +34,6 @@
     </nav>
     <div class="container body-content">
         @RenderBody()
-        <hr />
     </div>
         <footer>
             <div class="bg-primary container-fluid text-white">
