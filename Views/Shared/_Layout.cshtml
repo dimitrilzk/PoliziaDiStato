@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Polizia di Stato</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-primary fw-bolder ">
+        <div class="container-fluid">
+            <DIV class="container-fluid">
+                @Html.ActionLink("POLIZIA DI STATO", "Index", "Home", new { area = "" }, new { @class = "navbar-brand text-white fst-italic fw-bolder"})
+            </DIV>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-link">
+                        @Html.ActionLink("Home", "Index", "Home", new {@class = "text-white text-decoration-none" })
+                    </li>
+                    <li class="nav-link">
+                        @Html.ActionLink("Informazioni", "About", "Home", new { @class = "text-white text-decoration-none" })
+                    </li>
+                    <li class="nav-link">
+                        @Html.ActionLink("Contatto", "Contact", "Home", new { @class = "text-white text-decoration-none" })
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+        <footer>
+            <div class="bg-primary container-fluid text-white">
+                <p class="text-center">&copy; @DateTime.Now.Year - Polizia di Stato</p>
+            </div>
+        </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
