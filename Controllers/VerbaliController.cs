@@ -157,7 +157,7 @@ namespace PoliziaDiStato.Controllers
                 cmd.Parameters.AddWithValue("@Punti", v.Punti);
                 cmd.Parameters.AddWithValue("@Violazione", ListaViolazioni);
                 cmd.Parameters.AddWithValue("@Trasgressore", ListaTrasgressori);
-                cmd.CommandText = "INSERT INTO Verbale (@DataViolazione, @Indirizzo, @NominativoAg, @DataTrascizione," +
+                cmd.CommandText = "INSERT INTO Verbale VALUES (@DataViolazione, @Indirizzo, @NominativoAg, @DataTrascizione," +
                                                          " @Importo, @Punti, @Violazione, @Trasgressore)";
                 cmd.Connection= con;
                 cmd.ExecuteNonQuery();
