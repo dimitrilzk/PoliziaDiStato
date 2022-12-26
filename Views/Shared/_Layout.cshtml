@@ -26,7 +26,7 @@
                         @Html.ActionLink("Violazione", "Create", "Violazioni", new { }, new { @class = "text-white text-decoration-none" })
                     </li>
                     <li class="nav-link">
-                        @Html.ActionLink("Verbale", "Contact", "Home", new { @class = "text-white text-decoration-none" })
+                        @Html.ActionLink("Verbale", "Create", "Verbali", new { }, new {@class = "text-white text-decoration-none" })
                     </li>
                 </ul>
             </div>
@@ -35,11 +35,11 @@
     <div class="container body-content">
         @RenderBody()
     </div>
-        <footer>
+        @*<footer>
             <div class="bg-primary container-fluid text-white">
                 <p class="text-center">&copy; @DateTime.Now.Year - Polizia di Stato</p>
             </div>
-        </footer>
+        </footer>*@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

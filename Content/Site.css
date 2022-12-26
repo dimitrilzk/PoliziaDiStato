@@ -44,4 +44,5 @@ footer {
 
     footer div {
         height: 50px;
+        position:sticky;
     }
