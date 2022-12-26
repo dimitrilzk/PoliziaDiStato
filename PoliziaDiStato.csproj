@@ -204,8 +204,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Violazioni\Create.cshtml" />
-    <Content Include="Views\Verbali\Create.cshtml" />
     <Content Include="Views\Trasgressori\Create.cshtml" />
+    <Content Include="Views\Verbali\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

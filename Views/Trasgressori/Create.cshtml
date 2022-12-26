@@ -4,14 +4,14 @@
     ViewBag.Title = "Trasgressori";
 }
 
-<h2>-Sezione Trasgressori-</h2>
+<h2 class="text-center">-Sezione Trasgressori-</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Compila il form per registrare il trasgressore nel database.</h4>
+        <h4 class="text-center">Compila il form per registrare il trasgressore nel database.</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
