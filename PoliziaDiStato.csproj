@@ -206,6 +206,8 @@
     <Content Include="Views\Violazioni\Create.cshtml" />
     <Content Include="Views\Trasgressori\Create.cshtml" />
     <Content Include="Views\Verbali\Create.cshtml" />
+    <Content Include="Views\Home\_PartialViewVerbali.cshtml" />
+    <Content Include="Views\Home\_PartialViewPunti.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

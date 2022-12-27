@@ -6,3 +6,41 @@
 <h2>Bentornato Agente.</h2>
 <p>Naviga il menu e scegli cosa vuoi fare oggi.</p>
 
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <p class="d-flex justify-content-center">
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    Verbali trascritti raggruppati per trasgressore
+                </button>
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    @{
+                        Html.RenderAction("PartialViewVerbali");
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <p class="d-flex justify-content-center">
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+                    Punti decurtati raggruppati per trasgressore
+                </button>
+            </p>
+            <div class="collapse" id="collapseExample2">
+                <div class="card card-body">
+                    @{
+                        Html.RenderAction("PartialViewPunti");
+                    }
+                </div>
+            </div>
+        </div>
+        
+
+        
+    </div>
+</div>
+
+

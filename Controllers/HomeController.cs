@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
 
@@ -11,6 +14,70 @@ namespace PoliziaDiStato.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        public ActionResult PartialViewVerbali()
+        {
+            SqlConnection con = new SqlConnection();
+            List<Verbale> ListaVerbaliPartial = new List<Verbale>();
+            try
+            {
+                con.ConnectionString = ConfigurationManager.ConnectionStrings["PoliziaMunicipale"].ToString();
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "Select Count(*) as Verbali, Cognome, Nome from Anagrafica inner join Verbale on " +
+                    " VERBALE.IdTrasgressore = ANAGRAFICA.IdTrasgressore group by Cognome, Nome order by Verbali Desc";
+                cmd.Connection = con;
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Verbale v = new Verbale();
+                        v.Nome = reader["Nome"].ToString();
+                        v.Cognome = reader["Cognome"].ToString();
+                        v.Verbali = Convert.ToInt32(reader["Verbali"]);
+                        ListaVerbaliPartial.Add(v);
+                    }
+                }
+                con.Close();
+            }
+            catch
+            {
+                con.Close();
+            }
+            return PartialView("_PartialViewVerbali",ListaVerbaliPartial);
+        }
+        public ActionResult PartialViewPunti()
+        {
+            SqlConnection con = new SqlConnection();
+            List<Verbale> ListaPuntiPartial = new List<Verbale>();
+            try
+            {
+                con.ConnectionString = ConfigurationManager.ConnectionStrings["PoliziaMunicipale"].ToString();
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "select sum(DecurtamentoPunti) as TotPunti, Cognome, Nome from Verbale inner join Anagrafica on " +
+                                  "Verbale.IdTrasgressore = Anagrafica.IdTrasgressore group by Cognome, Nome order by TotPunti Desc";
+                cmd.Connection = con;
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Verbale v = new Verbale();
+                        v.Nome = reader["Nome"].ToString();
+                        v.Cognome = reader["Cognome"].ToString();
+                        v.Punti = Convert.ToInt32(reader["TotPunti"]);
+                        ListaPuntiPartial.Add(v);
+                    }
+                }
+                con.Close();
+            }
+            catch
+            {
+                con.Close();
+            }
+            return PartialView("_PartialViewPunti", ListaPuntiPartial);
         }
 
     }

@@ -16,6 +16,8 @@ namespace PoliziaDiStato
         public int Punti { get; set; }
         public int IdViolazione { get; set; }
         public int IdTrasgressore { get; set; }
-
+        public string Nome { get; set; }
+        public string Cognome { get; set; }
+        public int Verbali { get; set; }
     }
 }
