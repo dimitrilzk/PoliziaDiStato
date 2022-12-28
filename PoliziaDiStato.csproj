@@ -209,6 +209,7 @@
     <Content Include="Views\Home\_PartialViewVerbali.cshtml" />
     <Content Include="Views\Home\_PartialViewPunti.cshtml" />
     <Content Include="Views\Home\_PartialView10Punti.cshtml" />
+    <Content Include="Views\Home\_PartialView400Euro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

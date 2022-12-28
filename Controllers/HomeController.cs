@@ -113,6 +113,37 @@ namespace PoliziaDiStato.Controllers
             }
             return PartialView("_PartialView10Punti", Lista10PuntiPartial);
         }
-
+        public ActionResult PartialView400Euro()
+        {
+            SqlConnection con = new SqlConnection();
+            List<Verbale> Lista400EuroPartial = new List<Verbale>();
+            try
+            {
+                con.ConnectionString = ConfigurationManager.ConnectionStrings["PoliziaMunicipale"].ToString();
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "select Importo, Cognome, Nome from Verbale inner join Anagrafica on " +
+                                  "Verbale.IdTrasgressore = Anagrafica.IdTrasgressore where Importo > 400 order by Importo Desc";
+                cmd.Connection = con;
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Verbale v = new Verbale();
+                        v.Importo = Convert.ToInt32(reader["Importo"]);
+                        v.Nome = reader["Nome"].ToString();
+                        v.Cognome = reader["Cognome"].ToString();
+                        Lista400EuroPartial.Add(v);
+                    }
+                }
+                con.Close();
+            }
+            catch
+            {
+                con.Close();
+            }
+            return PartialView("_PartialView400Euro", Lista400EuroPartial);
+        }
     }
 }
