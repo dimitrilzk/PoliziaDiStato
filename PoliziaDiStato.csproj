@@ -208,6 +208,7 @@
     <Content Include="Views\Verbali\Create.cshtml" />
     <Content Include="Views\Home\_PartialViewVerbali.cshtml" />
     <Content Include="Views\Home\_PartialViewPunti.cshtml" />
+    <Content Include="Views\Home\_PartialView10Punti.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

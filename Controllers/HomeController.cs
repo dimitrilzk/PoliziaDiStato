@@ -79,6 +79,40 @@ namespace PoliziaDiStato.Controllers
             }
             return PartialView("_PartialViewPunti", ListaPuntiPartial);
         }
+        public ActionResult PartialView10Punti()
+        {
+            SqlConnection con = new SqlConnection();
+            List<Verbale> Lista10PuntiPartial = new List<Verbale>();
+            try
+            {
+                con.ConnectionString = ConfigurationManager.ConnectionStrings["PoliziaMunicipale"].ToString();
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "select Importo, Cognome, Nome, DataViolazione, DecurtamentoPunti from Verbale inner join Anagrafica on " +
+                                  "Verbale.IdTrasgressore = Anagrafica.IdTrasgressore where DecurtamentoPunti > 10";
+                cmd.Connection = con;
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Verbale v = new Verbale();
+                        v.Importo = Convert.ToInt32(reader["Importo"]);
+                        v.Nome = reader["Nome"].ToString();
+                        v.Cognome = reader["Cognome"].ToString();
+                        v.DataViolazione = Convert.ToDateTime(reader["DataViolazione"]);
+                        v.Punti = Convert.ToInt32(reader["DecurtamentoPunti"]);
+                        Lista10PuntiPartial.Add(v);
+                    }
+                }
+                con.Close();
+            }
+            catch
+            {
+                con.Close();
+            }
+            return PartialView("_PartialView10Punti", Lista10PuntiPartial);
+        }
 
     }
 }

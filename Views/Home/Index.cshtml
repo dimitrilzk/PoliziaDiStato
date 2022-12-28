@@ -40,6 +40,37 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-6">
+            <p class="d-flex justify-content-center">
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
+                    Violazioni che superano i 10 punti
+                </button>
+            </p>
+            <div class="collapse" id="collapseExample3">
+                <div class="card card-body">
+                    @{
+                        Html.RenderAction("PartialView10Punti");
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <p class="d-flex justify-content-center">
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample4" aria-expanded="false" aria-controls="collapseExample">
+                    Violazioni il cui importo è maggiore di 400 euro
+                </button>
+            </p>
+            <div class="collapse" id="collapseExample4">
+                <div class="card card-body">
+                    @{
+                        Html.RenderAction("PartialViewPunti");
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
